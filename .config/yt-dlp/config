@@ -1,0 +1,7 @@
+# put videos to download on one line in to_download.txt
+# and substitute download folder for file path
+-f "(302/247/244)+(251/250/249/600)/best[height<=720]/b"
+--prefer-free-formats
+--restrict-filenames
+-a $DOWNLOAD_FOLDER/to_download.txt
+-o $DOWNLOAD_FOLDER/%(title)s.%(ext)s

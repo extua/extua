@@ -1,0 +1,9 @@
+[user]
+	email = pierre.marshall@gmail.com
+	name = Pierre Marshall
+	signingkey = F43F284D80E65065
+[commit]
+	gpgsign = true
+[core]
+# Use sonny editor on GNOME
+	editor = flatpak run re.sonny.Commit

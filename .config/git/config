@@ -7,3 +7,5 @@
 [core]
 # Use sonny editor on GNOME
 	editor = flatpak run re.sonny.Commit
+[branch]
+  sort = -committerdate

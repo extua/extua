@@ -1,0 +1,9 @@
+theme = "adwaita-dark"
+
+[editor]
+mouse = false
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 25 # increase value to reduce forced mid-word wrapping
+max-indent-retain = 0

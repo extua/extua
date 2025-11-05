@@ -1,7 +1,5 @@
 I'm currently working on the [Algorithmic Archive](https://blogs.bodleian.ox.ac.uk/archivesandmanuscripts/2025/10/03/the-algorithmic-archive-project-overview/) project, looking for ways to archive social media sites, and creating [a library for writing WACZ files](https://lib.rs/crates/wacksy).
 
-My current system:
-
 ```yaml
 pierre@bodlaptop
 ----------------

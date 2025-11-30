@@ -1,0 +1,2 @@
+- [ ] https://github.com/w3c/epubcheck/issues/1117
+- [ ] https://github.com/typst/unicode-math-class/issues/1

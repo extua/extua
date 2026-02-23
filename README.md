@@ -1,4 +1,4 @@
-I'm currently working on the [Algorithmic Archive](https://blogs.bodleian.ox.ac.uk/archivesandmanuscripts/2025/10/03/the-algorithmic-archive-project-overview/) project, looking for ways to archive social media sites, and creating [a library for writing WACZ files](https://lib.rs/crates/wacksy).
+I maintain [a Rust crate for writing WACZ files](https://lib.rs/crates/wacksy), and currently working mainly to rescue [an old biography website](https://github.com/extua/biography-compendium).
 
 ```yaml
 pierre@bodlaptop

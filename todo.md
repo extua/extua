@@ -1,3 +1,4 @@
 - [ ] https://github.com/w3c/epubcheck/issues/1117
 - [ ] https://github.com/typst/unicode-math-class/issues/1
 - [ ] [Content Licensing for the Fediverse](https://codeberg.org/fediverse/fep/src/branch/main/fep/c118/fep-c118.md)
+- [ ] https://github.com/webrecorder/warcio.js/issues/5

@@ -1,0 +1,52 @@
+- name: Local development environment
+  hosts: local
+  connection: local
+  become: yes
+
+  tasks:
+    - shell: echo "hello ansible" >> $(mktemp)
+
+    - name: Install Rust
+      ansible.builtin.dnf:
+        name:
+          - rust
+          - cargo
+          - clippy
+          - rustfmt
+          - rust-src
+        state: latest
+
+    - name: Create timesync conf directory
+      file:
+        owner: root
+        group: root
+        mode: 0755
+        path: /etc/systemd/timesyncd.conf.d
+        state: directory
+    - name: Copy Oxford time config
+      ansible.builtin.copy:
+        src: timeserver/oxford_time.conf
+        dest: /etc/systemd/timesyncd.conf.d/oxford_time.conf
+
+    - name: Override systemd service allowing this to run in a container
+      file:
+        owner: root
+        group: root
+        mode: 0755
+        path: /etc/systemd/system/systemd-timesyncd.service.d
+        state: directory
+    - name: Set up timesyncd service override
+      ini_file:
+        dest: /etc/systemd/system/systemd-timesyncd.service.d/container_override.conf
+        owner: root
+        group: root
+        mode: 0644
+        section: Unit
+        option: ConditionVirtualization
+        value: wsl
+
+    - name: Restart timesyncd
+      ansible.builtin.systemd_service:
+        name: systemd-timesyncd
+        daemon_reload: true
+        state: restarted

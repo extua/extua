@@ -4,7 +4,13 @@
   become: yes
 
   tasks:
-    - shell: echo "hello ansible" >> $(mktemp)
+
+    - name: Copy dotfiles
+      ansible.posix.synchronize:
+        src: dotfiles/
+        dest: ~/.config/
+        recursive: yes
+        delete: no
 
     - name: Install Rust
       ansible.builtin.dnf:
@@ -50,3 +56,8 @@
         name: systemd-timesyncd
         daemon_reload: true
         state: restarted
+
+    - name: Install Helix
+      ansible.builtin.dnf:
+        name: helix
+        state: latest

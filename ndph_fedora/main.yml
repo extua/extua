@@ -1,0 +1,27 @@
+- name: Local development environment
+  hosts: local
+  connection: local
+  become: yes
+
+  roles:
+    - timeserver
+
+  tasks:
+    - name: Copy dotfiles
+      ansible.posix.synchronize:
+        src: files/dotfiles/
+        dest: ~/.config/
+        recursive: yes
+        delete: no
+
+    - name: Install packages
+      ansible.builtin.dnf:
+        name:
+          - rust
+          - cargo
+          - clippy
+          - rustfmt
+          - rust-src
+          - helix
+          - bat
+        state: latest

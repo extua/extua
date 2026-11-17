@@ -1,0 +1,36 @@
+- name: Create timesync conf directory
+  file:
+    owner: root
+    group: root
+    mode: 0755
+    path: /etc/systemd/timesyncd.conf.d
+    state: directory
+    
+- name: Copy Oxford time config to timesyncd config directory
+  ansible.builtin.copy:
+    src: oxford_time.conf
+    dest: /etc/systemd/timesyncd.conf.d/oxford_time.conf
+
+- name: Create timesyncd service config directory
+  file:
+    owner: root
+    group: root
+    mode: 0755
+    path: /etc/systemd/system/systemd-timesyncd.service.d
+    state: directory
+    
+- name: Override default timesyncd config to allow running in WSL
+  ini_file:
+    dest: /etc/systemd/system/systemd-timesyncd.service.d/container_override.conf
+    owner: root
+    group: root
+    mode: 0644
+    section: Unit
+    option: ConditionVirtualization
+    value: wsl
+
+- name: Restart timesyncd
+  ansible.builtin.systemd_service:
+    name: systemd-timesyncd
+    daemon_reload: true
+    state: restarted

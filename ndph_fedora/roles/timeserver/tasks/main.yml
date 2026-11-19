@@ -10,6 +10,7 @@
   ansible.builtin.copy:
     src: oxford_time.conf
     dest: /etc/systemd/timesyncd.conf.d/oxford_time.conf
+  notify: Restart timesyncd
 
 - name: Create timesyncd service config directory
   file:
@@ -28,9 +29,4 @@
     section: Unit
     option: ConditionVirtualization
     value: wsl
-
-- name: Restart timesyncd
-  ansible.builtin.systemd_service:
-    name: systemd-timesyncd
-    daemon_reload: true
-    state: restarted
+  notify: Restart timesyncd

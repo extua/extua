@@ -1,0 +1,12 @@
+- name: Create distribution repo override directory
+  file:
+    owner: root
+    group: root
+    mode: 0755
+    path: /usr/share/dnf5/repos.override.d
+    state: directory
+    
+- name: Copy mirror override file
+  ansible.builtin.copy:
+    src: 50-oxford-mirror.repo
+    dest: /usr/share/dnf5/repos.override.d

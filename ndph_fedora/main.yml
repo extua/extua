@@ -5,6 +5,7 @@
 
   roles:
     - timeserver
+    - oxford_repo_mirror
 
   tasks:
     - name: Copy dotfiles

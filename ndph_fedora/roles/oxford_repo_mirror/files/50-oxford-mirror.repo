@@ -1,0 +1,7 @@
+[fedora]
+baseurl=https://mirror.ox.ac.uk/sites/download.fedora.redhat.com/pub/fedora/fedora/linux/releases/$releasever/Everything/$basearch/os/
+metalink=''
+
+[updates]
+baseurl=https://mirror.ox.ac.uk/sites/download.fedora.redhat.com/pub/fedora/fedora/linux/updates/$releasever/Everything/$basearch/
+metalink=''
